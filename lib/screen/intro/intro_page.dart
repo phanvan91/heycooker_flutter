@@ -33,9 +33,11 @@ class _IntroPageState extends State<IntroPage> {
                 ],
                 showSkipButton: false,
                 showNextButton: false,
+                showDoneButton: false,
                 done: const SizedBox.shrink(),
                 onDone: () {
                   // TODO: navigate
+                  print("onDone");
                 },
                 onChange: (index) {
                   setState(() {
@@ -62,27 +64,11 @@ class _IntroPageState extends State<IntroPage> {
                 ),
             ],
           ),
+
+
+          
         ),
       ),
-
-
-      bottomSheet: isLastPage
-          ? Container(
-              color: Colors.white,
-              width: double.infinity,
-              height: 60,
-              child: TextButton(
-                onPressed: () {
-                  // TODO: Navigate to main page
-                },
-                style: TextButton.styleFrom(backgroundColor: Color(0xFFFF6741)),
-                child: const Text(
-                  "시작하기",
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-              ),
-            )
-          : null,
     );
   }
 }

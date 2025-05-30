@@ -3,139 +3,177 @@ import 'package:auto_route/auto_route.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 @RoutePage()
-class IntroPage extends StatelessWidget {
+@RoutePage()
+class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+  State<IntroPage> createState() => _IntroPageState();
+}
 
+class _IntroPageState extends State<IntroPage> {
+  final introKey = GlobalKey<IntroductionScreenState>();
+  bool isLastPage = false;
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 30), // 10px trên dưới
-          child: IntroductionScreen(
-            globalBackgroundColor: Colors.white,
-            pages: [
-              PageViewModel(
-                titleWidget: const SizedBox.shrink(),
-                bodyWidget: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "매일 고민인 하루 식단과 칼로리, 이제 고민하지 말고 헤이쿠커의 추천을 받아보세요.",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                      textAlign: TextAlign.center,
+          child: Stack(
+            children: [
+              IntroductionScreen(
+                key: introKey,
+                globalBackgroundColor: Colors.white,
+                pages: [
+                  _buildPage('assets/images/intro/intro1.png'),
+                  _buildPage('assets/images/intro/intro1.png'),
+                  _buildPage('assets/images/intro/intro1.png'),
+                ],
+                showSkipButton: false,
+                showNextButton: false,
+                done: const SizedBox.shrink(),
+                onDone: () {
+                  // TODO: navigate
+                },
+                onChange: (index) {
+                  setState(() {
+                    isLastPage = (index == 2); // index cuối cùng (3 page)
+                  });
+                },
+              ),
+              if (!isLastPage)
+                Positioned(
+                  bottom: 0,
+                  right: 50,
+                  child: TextButton(
+                    onPressed: () {
+                      // Thêm lệnh log của bạn ở đây, ví dụ dùng print
+                      print("Nút Skip đã được nhấn");
+                      // Gọi hàm skipToEnd() sau khi log
+                      introKey.currentState?.skipToEnd();
+                    },
+                    child: const Text(
+                      "Skip",
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
                     ),
-                    const SizedBox(height: 20),
-                    Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/1046/1046857.png',
-                      width: 200,
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+
+
+      bottomSheet: isLastPage
+          ? Container(
+              color: Colors.white,
+              width: double.infinity,
+              height: 60,
+              child: TextButton(
+                onPressed: () {
+                  // TODO: Navigate to main page
+                },
+                style: TextButton.styleFrom(backgroundColor: Color(0xFFFF6741)),
+                child: const Text(
+                  "시작하기",
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+              ),
+            )
+          : null,
+    );
+  }
+}
+
+PageViewModel _buildPage(String imagePath) {
+  return PageViewModel(
+    decoration: const PageDecoration(
+      imagePadding: EdgeInsets.zero,
+      contentMargin: EdgeInsets.zero,
+      titlePadding: EdgeInsets.zero,
+    ),
+    titleWidget: const SizedBox.shrink(),
+    bodyWidget: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: 40), // Padding trái phải 20px
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 50),
+              Text(
+                "연령별 레시피 추천 AI",
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Color(0xFF000000),
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                      color: Color(0x40000000),
                     ),
                   ],
                 ),
               ),
-              PageViewModel(
-                titleWidget: const SizedBox.shrink(),
-                bodyWidget: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "매일 고민인 하루 식단과 칼로리, 이제 고민하지 말고 헤이쿠커의 추천을 받아보세요.",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 20),
-                    Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/1046/1046852.png',
-                      width: 200,
+              Text(
+                "식단부터 요리 레시피 완벽 정리!",
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Color(0xFFFF6741),
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                      color: Color(0x40000000),
                     ),
                   ],
                 ),
               ),
-              PageViewModel(
-                titleWidget: const SizedBox.shrink(),
-                bodyWidget: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "매일 고민인 하루 식단과 칼로리, 이제 고민하지 말고 헤이쿠커의 추천을 받아보세요.",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 20),
-                    Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/1046/1046853.png',
-                      width: 200,
+              SizedBox(height: 10),
+              Text(
+                "매일 고민이던 하루 식단과 칼로리,",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF777777),
+                  shadows: [
+                    Shadow(
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                      color: Color(0x40000000),
                     ),
                   ],
                 ),
               ),
-              PageViewModel(
-                titleWidget: const SizedBox.shrink(),
-                bodyWidget: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "매일 고민인 하루 식단과 칼로리, 이제 고민하지 말고 헤이쿠커의 추천을 받아보세요.",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 20),
-                    Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/1046/1046859.png',
-                      width: 200,
-                    ),
-                  ],
-                ),
-              ),
-              PageViewModel(
-                titleWidget: const SizedBox.shrink(),
-                bodyWidget: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "매일 고민인 하루 식단과 칼로리, 이제 고민하지 말고 헤이쿠커의 추천을 받아보세요.",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 20),
-                    Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/1046/1046858.png',
-                      width: 200,
+              Text(
+                "이제 고민하지말고 헤이!쿠커의 추천을 받아보세요.",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF777777),
+                  shadows: [
+                    Shadow(
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                      color: Color(0x40000000),
                     ),
                   ],
                 ),
               ),
             ],
-            onDone: () {
-              // TODO: Navigate to main page
-            },
-            showSkipButton: true,
-            skip: const Text("Skip"),
-            next: const Icon(Icons.arrow_forward),
-            done: const Text("시작하기",
-                style: TextStyle(fontWeight: FontWeight.w600)),
           ),
         ),
-      ),
-    );
-  }
+        const SizedBox(height: 100),
+        Image.asset(
+          imagePath,
+          fit: BoxFit.cover,
+          width: double.infinity, // Phủ hết chiều ngang
+        ),
+      ],
+    ),
+  );
 }

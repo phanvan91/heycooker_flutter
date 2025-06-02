@@ -16,11 +16,14 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child:
-        BlocBuilder<SettingBloc, SettingState>(builder: (context, state) {
+            BlocBuilder<SettingBloc, SettingState>(builder: (context, state) {
           return MaterialApp.router(
-              debugShowCheckedModeBanner: false,
-              title: '함께하는 서비스',
-              routerConfig: GetIt.I<AppRouter>().config(),
+            debugShowCheckedModeBanner: false,
+            title: '함께하는 서비스',
+            theme: ThemeData(
+              fontFamily: 'NotoSansKR', // Khai báo font mặc định ở đây!
+            ),
+            routerConfig: GetIt.I<AppRouter>().config(),
           );
         }));
   }

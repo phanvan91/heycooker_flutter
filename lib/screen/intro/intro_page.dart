@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:heycooker_flutter/app/routes/app_route.gr.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 @RoutePage()
@@ -14,8 +15,10 @@ class IntroPage extends StatefulWidget {
 class _IntroPageState extends State<IntroPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
   bool isLastPage = false;
+
   @override
   Widget build(BuildContext context) {
+    debugPrint('Current State: $isLastPage');
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -34,7 +37,39 @@ class _IntroPageState extends State<IntroPage> {
                 showSkipButton: false,
                 showNextButton: false,
                 showDoneButton: false,
-                done: const SizedBox.shrink(),
+                // done: const SizedBox.shrink(),
+                globalFooter: isLastPage
+                    ? Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Navigator.of(context).pop();
+                              debugPrint('chuyen page');
+                              context.router.replace(MainRoute(title: 'Main'));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFFF6741),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                            ),
+                            child: const Text(
+                              '시작하기',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+                dotsDecorator: const DotsDecorator(
+                  activeColor: Color(0xFFFF6741),
+                ),
                 onDone: () {
                   // TODO: navigate
                   print("onDone");
@@ -64,9 +99,6 @@ class _IntroPageState extends State<IntroPage> {
                 ),
             ],
           ),
-
-
-          
         ),
       ),
     );

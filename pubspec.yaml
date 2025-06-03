@@ -87,6 +87,10 @@ flutter:
     - assets/images/main/header_human.png
     - assets/images/main/icon_camera.png
     - assets/images/footer/icon1.svg
+    - assets/images/footer/icon2.svg
+    - assets/images/footer/icon3.svg
+    - assets/images/footer/icon4.svg
+    - assets/images/footer/icon5.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../components/footer/footer.dart';
+
 @RoutePage()
 class MainPage extends StatefulWidget {
   const MainPage({super.key, required this.title});
@@ -39,50 +41,22 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        bottomNavigationBar: buildBottomNavigationBar(),
+        bottomNavigationBar: CustomBottomNavigationBar(
+          selectedIndex: _selectedIndex,
+          onItemSelected: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          onAiChefTapped: () {
+            debugPrint("onAiChefTapped");
+            // setState(() {
+            //   _selectedIndex = 2;
+            // });
+          },
+        ),
       );
     });
-  }
-
-  Widget buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed, // Luôn hiển thị đủ label + icon
-      backgroundColor: Colors.white, // Màu nền
-      selectedItemColor: Colors.orange, // Màu icon + text khi được chọn
-      unselectedItemColor:
-          Colors.black54, // Màu icon + text khi không được chọn
-      currentIndex: _selectedIndex, // Biến state để biết đang chọn cái nào
-      onTap: (index) {
-        setState(() {
-          _selectedIndex = index; // Cập nhật state khi click
-        });
-      },
-      items: [
-        BottomNavigationBarItem(
-          icon: SvgPicture.asset(
-            'assets/images/footer/icon1.svg',
-             color: _selectedIndex == 0 ? Colors.orange : Colors.black54,
-          ),
-          label: 'Khám phá',
-        ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.restaurant),
-          label: 'Bếp của tôi',
-        ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.camera_alt),
-          label: 'Đầu bếp AI',
-        ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.bookmark),
-          label: 'Yêu thích',
-        ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.menu),
-          label: 'Menu',
-        ),
-      ],
-    );
   }
 }
 

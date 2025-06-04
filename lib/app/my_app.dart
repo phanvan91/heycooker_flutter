@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'blocs/setting/setting_bloc.dart';
 import '../app/routes/app_route.dart';
+import '../screen/components/footer/bottom_navigation_bar_bloc.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => GetIt.I<SettingBloc>(),
+          ),
+          BlocProvider(
+            create: (_) => GetIt.I<BottomNavigationBloc>(),
           ),
         ],
         child:

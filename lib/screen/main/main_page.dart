@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import '../../app/blocs/setting/setting_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-import '../components/footer/footer.dart';
+import '../components/footer/bottom_navigation_bar.dart';
 
 @RoutePage()
 class MainPage extends StatefulWidget {
@@ -26,7 +25,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -41,20 +39,7 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        bottomNavigationBar: CustomBottomNavigationBar(
-          selectedIndex: _selectedIndex,
-          onItemSelected: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-          onAiChefTapped: () {
-            debugPrint("onAiChefTapped");
-            // setState(() {
-            //   _selectedIndex = 2;
-            // });
-          },
-        ),
+        bottomNavigationBar: CustomBottomNavigationBar(),
       );
     });
   }

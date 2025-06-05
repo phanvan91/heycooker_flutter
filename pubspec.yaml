@@ -86,6 +86,7 @@ flutter:
     - assets/images/main/icon_cart.png
     - assets/images/main/header_human.png
     - assets/images/main/icon_camera.png
+    - assets/images/main/icon_refresh.svg
     - assets/images/footer/icon1.svg
     - assets/images/footer/icon2.svg
     - assets/images/footer/icon3.svg
@@ -107,6 +108,9 @@ flutter:
     - family: NotoSansKR
       fonts:
         - asset: assets/fonts/Noto_Sans_KR/static/NotoSansKR-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Noto_Sans_KR/static/NotoSansKR-Medium.ttf
+          weight: 500
         - asset: assets/fonts/Noto_Sans_KR/static/NotoSansKR-Bold.ttf
           weight: 700
     # - family: Trajan Pro

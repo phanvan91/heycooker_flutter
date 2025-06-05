@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 class HeaderMain extends StatelessWidget {
   const HeaderMain({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/images/main/background_header.png'),
@@ -113,20 +112,18 @@ class HeaderMain extends StatelessWidget {
                         const Text(
                           "Đầu bếp AI đã sẵn sàng \nĐề xuất món ăn cho bạn.",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500
+                          ),
                         ),
                         const SizedBox(height: 10),
                         TextButton(
                           style: TextButton.styleFrom(
-                            backgroundColor:
-                                const Color(0xFFFF6741), // Màu nền button
-                            foregroundColor: Colors.white, // Màu chữ
-                            // padding: const EdgeInsets.symmetric(
-                            //     horizontal: 24, vertical: 12), // Padding
+                            backgroundColor: const Color(0xFFFF6741),
+                            foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50), // Bo góc
+                              borderRadius: BorderRadius.circular(50),
                             ),
                           ),
                           onPressed: () {},
@@ -140,7 +137,7 @@ class HeaderMain extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold),
+                                    fontWeight: FontWeight.w500),
                               ),
                             ],
                           ),
@@ -149,13 +146,22 @@ class HeaderMain extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: Image.asset(
-                      'assets/images/main/header_human.png',
-                      fit: BoxFit.cover,
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight: MediaQuery.of(context).size.height *
+                              0.25, // Giới hạn tối đa 30% chiều cao màn hình
+                        ),
+                        child: Image.asset(
+                          'assets/images/main/header_human.png',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                 ],
-              ),
+              )
             ],
           ),
         ),

@@ -7,5 +7,6 @@ class SettingState with _$SettingState {
     @Default('en') String language,
     @Default(false) bool isFirstLaunch,
     @Default(true) bool isNotificationEnabled,
+    @Default('dark') String statusBarIconBrightness,
   }) = _SettingState;
 }

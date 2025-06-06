@@ -15,6 +15,7 @@ import 'package:heycooker_flutter/app/routes/app_route.dart' as _i877;
 import 'package:heycooker_flutter/di/di_module.dart' as _i943;
 import 'package:heycooker_flutter/screen/components/footer/bottom_navigation_bar_bloc.dart'
     as _i182;
+import 'package:heycooker_flutter/utils/log/logger.dart' as _i620;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
@@ -37,6 +38,7 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i182.BottomNavigationBloc>(() => _i182.BottomNavigationBloc());
     gh.singleton<_i877.AppRouter>(() => registerModule.appRouter);
+    gh.lazySingleton<_i620.AppLogger>(() => _i620.AppLogger());
     return this;
   }
 }

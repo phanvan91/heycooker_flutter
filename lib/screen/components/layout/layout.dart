@@ -1,33 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../footer/bottom_navigation_bar.dart';
 import '../header/header_main/header_main.dart';
+import '../../../app/blocs/setting/setting_bloc.dart';
 
-
-class Layout extends StatelessWidget {
+class Layout extends StatefulWidget {
   final Widget body;
   final bool isScrollable;
   final Color backgroundLayout;
+  final String statusBarIconBrightness;
 
   const Layout({
     Key? key,
     required this.body,
     this.isScrollable = false,
     this.backgroundLayout = const Color(0xFF0C0D0E),
+    this.statusBarIconBrightness = 'dark',
   }) : super(key: key);
+
+  @override
+  State<Layout> createState() => LayoutState();
+}
+
+class LayoutState extends State<Layout> {
+  @override
+  void initState() {
+    super.initState();
+    debugPrint('LayoutState: ${widget.statusBarIconBrightness}'); // Thêm dấu $ và {}
+    context.read<SettingBloc>().add(SettingEvent.changeStatusBarIcon(widget.statusBarIconBrightness));
+  }
 
   @override
   Widget build(BuildContext context) {
     final content = Column(
       children: [
         const HeaderMain(),
-        body,
+        widget.body,
       ],
     );
 
-    return Scaffold(
-      backgroundColor: backgroundLayout,
-      body: isScrollable ? SingleChildScrollView(child: content) : content,
-      bottomNavigationBar: const CustomBottomNavigationBar(),
+    return BlocBuilder<SettingBloc, SettingState>(
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: widget.backgroundLayout,
+          body: widget.isScrollable ? SingleChildScrollView(child: content) : content,
+          bottomNavigationBar: const CustomBottomNavigationBar(),
+        );
+      },
     );
   }
 }

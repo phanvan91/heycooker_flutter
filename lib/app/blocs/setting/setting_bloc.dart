@@ -15,6 +15,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
         changeLanguage: (e) => _onChangeLanguage(e, emit),
         setFirstLaunch: (e) => _onSetFirstLaunch(e, emit),
         toggleNotification: (e) => _onToggleNotification(e, emit),
+        changeStatusBarIcon: (e) => _onChangeStatusBarIcon(e, emit),
       );
     });
   }
@@ -24,26 +25,30 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
   }
 
   void _onChangeLanguage(SettingEvent event, Emitter<SettingState> emit) {
-    final language = event.map(
-      toggleDarkMode: (_) => state.language,
-      changeLanguage: (e) => e.language,
-      setFirstLaunch: (_) => state.language,
-      toggleNotification: (_) => state.language,
-    );
-    emit(state.copyWith(language: language));
+    // final language = event.map(
+    //   toggleDarkMode: (_) => state.language,
+    //   changeLanguage: (e) => e.language,
+    //   setFirstLaunch: (_) => state.language,
+    //   toggleNotification: (_) => state.language,
+    // );
+    // emit(state.copyWith(language: language));
   }
 
   void _onSetFirstLaunch(SettingEvent event, Emitter<SettingState> emit) {
-    final isFirst = event.map(
-      toggleDarkMode: (_) => state.isFirstLaunch,
-      changeLanguage: (_) => state.isFirstLaunch,
-      setFirstLaunch: (e) => e.isFirst,
-      toggleNotification: (_) => state.isFirstLaunch,
-    );
-    emit(state.copyWith(isFirstLaunch: isFirst));
+    // final isFirst = event.map(
+    //   toggleDarkMode: (_) => state.isFirstLaunch,
+    //   changeLanguage: (_) => state.isFirstLaunch,
+    //   setFirstLaunch: (e) => e.isFirst,
+    //   toggleNotification: (_) => state.isFirstLaunch,
+    // );
+    // emit(state.copyWith(isFirstLaunch: isFirst));
   }
 
   void _onToggleNotification(SettingEvent event, Emitter<SettingState> emit) {
     emit(state.copyWith(isNotificationEnabled: !state.isNotificationEnabled));
+  }
+
+  void _onChangeStatusBarIcon (event, emit) {
+    emit(state.copyWith(statusBarIconBrightness: event.status));
   }
 }

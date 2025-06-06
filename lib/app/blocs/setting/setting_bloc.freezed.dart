@@ -22,6 +22,7 @@ mixin _$SettingEvent {
     required TResult Function(String language) changeLanguage,
     required TResult Function(bool isFirst) setFirstLaunch,
     required TResult Function() toggleNotification,
+    required TResult Function(String status) changeStatusBarIcon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$SettingEvent {
     TResult? Function(String language)? changeLanguage,
     TResult? Function(bool isFirst)? setFirstLaunch,
     TResult? Function()? toggleNotification,
+    TResult? Function(String status)? changeStatusBarIcon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$SettingEvent {
     TResult Function(String language)? changeLanguage,
     TResult Function(bool isFirst)? setFirstLaunch,
     TResult Function()? toggleNotification,
+    TResult Function(String status)? changeStatusBarIcon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$SettingEvent {
     required TResult Function(_ChangeLanguage value) changeLanguage,
     required TResult Function(_SetFirstLaunch value) setFirstLaunch,
     required TResult Function(_ToggleNotification value) toggleNotification,
+    required TResult Function(_changeStatusBarIcon value) changeStatusBarIcon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$SettingEvent {
     TResult? Function(_ChangeLanguage value)? changeLanguage,
     TResult? Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult? Function(_ToggleNotification value)? toggleNotification,
+    TResult? Function(_changeStatusBarIcon value)? changeStatusBarIcon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$SettingEvent {
     TResult Function(_ChangeLanguage value)? changeLanguage,
     TResult Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult Function(_ToggleNotification value)? toggleNotification,
+    TResult Function(_changeStatusBarIcon value)? changeStatusBarIcon,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +140,7 @@ class _$ToggleDarkModeImpl implements _ToggleDarkMode {
     required TResult Function(String language) changeLanguage,
     required TResult Function(bool isFirst) setFirstLaunch,
     required TResult Function() toggleNotification,
+    required TResult Function(String status) changeStatusBarIcon,
   }) {
     return toggleDarkMode();
   }
@@ -145,6 +152,7 @@ class _$ToggleDarkModeImpl implements _ToggleDarkMode {
     TResult? Function(String language)? changeLanguage,
     TResult? Function(bool isFirst)? setFirstLaunch,
     TResult? Function()? toggleNotification,
+    TResult? Function(String status)? changeStatusBarIcon,
   }) {
     return toggleDarkMode?.call();
   }
@@ -156,6 +164,7 @@ class _$ToggleDarkModeImpl implements _ToggleDarkMode {
     TResult Function(String language)? changeLanguage,
     TResult Function(bool isFirst)? setFirstLaunch,
     TResult Function()? toggleNotification,
+    TResult Function(String status)? changeStatusBarIcon,
     required TResult orElse(),
   }) {
     if (toggleDarkMode != null) {
@@ -171,6 +180,7 @@ class _$ToggleDarkModeImpl implements _ToggleDarkMode {
     required TResult Function(_ChangeLanguage value) changeLanguage,
     required TResult Function(_SetFirstLaunch value) setFirstLaunch,
     required TResult Function(_ToggleNotification value) toggleNotification,
+    required TResult Function(_changeStatusBarIcon value) changeStatusBarIcon,
   }) {
     return toggleDarkMode(this);
   }
@@ -182,6 +192,7 @@ class _$ToggleDarkModeImpl implements _ToggleDarkMode {
     TResult? Function(_ChangeLanguage value)? changeLanguage,
     TResult? Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult? Function(_ToggleNotification value)? toggleNotification,
+    TResult? Function(_changeStatusBarIcon value)? changeStatusBarIcon,
   }) {
     return toggleDarkMode?.call(this);
   }
@@ -193,6 +204,7 @@ class _$ToggleDarkModeImpl implements _ToggleDarkMode {
     TResult Function(_ChangeLanguage value)? changeLanguage,
     TResult Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult Function(_ToggleNotification value)? toggleNotification,
+    TResult Function(_changeStatusBarIcon value)? changeStatusBarIcon,
     required TResult orElse(),
   }) {
     if (toggleDarkMode != null) {
@@ -280,6 +292,7 @@ class _$ChangeLanguageImpl implements _ChangeLanguage {
     required TResult Function(String language) changeLanguage,
     required TResult Function(bool isFirst) setFirstLaunch,
     required TResult Function() toggleNotification,
+    required TResult Function(String status) changeStatusBarIcon,
   }) {
     return changeLanguage(language);
   }
@@ -291,6 +304,7 @@ class _$ChangeLanguageImpl implements _ChangeLanguage {
     TResult? Function(String language)? changeLanguage,
     TResult? Function(bool isFirst)? setFirstLaunch,
     TResult? Function()? toggleNotification,
+    TResult? Function(String status)? changeStatusBarIcon,
   }) {
     return changeLanguage?.call(language);
   }
@@ -302,6 +316,7 @@ class _$ChangeLanguageImpl implements _ChangeLanguage {
     TResult Function(String language)? changeLanguage,
     TResult Function(bool isFirst)? setFirstLaunch,
     TResult Function()? toggleNotification,
+    TResult Function(String status)? changeStatusBarIcon,
     required TResult orElse(),
   }) {
     if (changeLanguage != null) {
@@ -317,6 +332,7 @@ class _$ChangeLanguageImpl implements _ChangeLanguage {
     required TResult Function(_ChangeLanguage value) changeLanguage,
     required TResult Function(_SetFirstLaunch value) setFirstLaunch,
     required TResult Function(_ToggleNotification value) toggleNotification,
+    required TResult Function(_changeStatusBarIcon value) changeStatusBarIcon,
   }) {
     return changeLanguage(this);
   }
@@ -328,6 +344,7 @@ class _$ChangeLanguageImpl implements _ChangeLanguage {
     TResult? Function(_ChangeLanguage value)? changeLanguage,
     TResult? Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult? Function(_ToggleNotification value)? toggleNotification,
+    TResult? Function(_changeStatusBarIcon value)? changeStatusBarIcon,
   }) {
     return changeLanguage?.call(this);
   }
@@ -339,6 +356,7 @@ class _$ChangeLanguageImpl implements _ChangeLanguage {
     TResult Function(_ChangeLanguage value)? changeLanguage,
     TResult Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult Function(_ToggleNotification value)? toggleNotification,
+    TResult Function(_changeStatusBarIcon value)? changeStatusBarIcon,
     required TResult orElse(),
   }) {
     if (changeLanguage != null) {
@@ -433,6 +451,7 @@ class _$SetFirstLaunchImpl implements _SetFirstLaunch {
     required TResult Function(String language) changeLanguage,
     required TResult Function(bool isFirst) setFirstLaunch,
     required TResult Function() toggleNotification,
+    required TResult Function(String status) changeStatusBarIcon,
   }) {
     return setFirstLaunch(isFirst);
   }
@@ -444,6 +463,7 @@ class _$SetFirstLaunchImpl implements _SetFirstLaunch {
     TResult? Function(String language)? changeLanguage,
     TResult? Function(bool isFirst)? setFirstLaunch,
     TResult? Function()? toggleNotification,
+    TResult? Function(String status)? changeStatusBarIcon,
   }) {
     return setFirstLaunch?.call(isFirst);
   }
@@ -455,6 +475,7 @@ class _$SetFirstLaunchImpl implements _SetFirstLaunch {
     TResult Function(String language)? changeLanguage,
     TResult Function(bool isFirst)? setFirstLaunch,
     TResult Function()? toggleNotification,
+    TResult Function(String status)? changeStatusBarIcon,
     required TResult orElse(),
   }) {
     if (setFirstLaunch != null) {
@@ -470,6 +491,7 @@ class _$SetFirstLaunchImpl implements _SetFirstLaunch {
     required TResult Function(_ChangeLanguage value) changeLanguage,
     required TResult Function(_SetFirstLaunch value) setFirstLaunch,
     required TResult Function(_ToggleNotification value) toggleNotification,
+    required TResult Function(_changeStatusBarIcon value) changeStatusBarIcon,
   }) {
     return setFirstLaunch(this);
   }
@@ -481,6 +503,7 @@ class _$SetFirstLaunchImpl implements _SetFirstLaunch {
     TResult? Function(_ChangeLanguage value)? changeLanguage,
     TResult? Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult? Function(_ToggleNotification value)? toggleNotification,
+    TResult? Function(_changeStatusBarIcon value)? changeStatusBarIcon,
   }) {
     return setFirstLaunch?.call(this);
   }
@@ -492,6 +515,7 @@ class _$SetFirstLaunchImpl implements _SetFirstLaunch {
     TResult Function(_ChangeLanguage value)? changeLanguage,
     TResult Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult Function(_ToggleNotification value)? toggleNotification,
+    TResult Function(_changeStatusBarIcon value)? changeStatusBarIcon,
     required TResult orElse(),
   }) {
     if (setFirstLaunch != null) {
@@ -558,6 +582,7 @@ class _$ToggleNotificationImpl implements _ToggleNotification {
     required TResult Function(String language) changeLanguage,
     required TResult Function(bool isFirst) setFirstLaunch,
     required TResult Function() toggleNotification,
+    required TResult Function(String status) changeStatusBarIcon,
   }) {
     return toggleNotification();
   }
@@ -569,6 +594,7 @@ class _$ToggleNotificationImpl implements _ToggleNotification {
     TResult? Function(String language)? changeLanguage,
     TResult? Function(bool isFirst)? setFirstLaunch,
     TResult? Function()? toggleNotification,
+    TResult? Function(String status)? changeStatusBarIcon,
   }) {
     return toggleNotification?.call();
   }
@@ -580,6 +606,7 @@ class _$ToggleNotificationImpl implements _ToggleNotification {
     TResult Function(String language)? changeLanguage,
     TResult Function(bool isFirst)? setFirstLaunch,
     TResult Function()? toggleNotification,
+    TResult Function(String status)? changeStatusBarIcon,
     required TResult orElse(),
   }) {
     if (toggleNotification != null) {
@@ -595,6 +622,7 @@ class _$ToggleNotificationImpl implements _ToggleNotification {
     required TResult Function(_ChangeLanguage value) changeLanguage,
     required TResult Function(_SetFirstLaunch value) setFirstLaunch,
     required TResult Function(_ToggleNotification value) toggleNotification,
+    required TResult Function(_changeStatusBarIcon value) changeStatusBarIcon,
   }) {
     return toggleNotification(this);
   }
@@ -606,6 +634,7 @@ class _$ToggleNotificationImpl implements _ToggleNotification {
     TResult? Function(_ChangeLanguage value)? changeLanguage,
     TResult? Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult? Function(_ToggleNotification value)? toggleNotification,
+    TResult? Function(_changeStatusBarIcon value)? changeStatusBarIcon,
   }) {
     return toggleNotification?.call(this);
   }
@@ -617,6 +646,7 @@ class _$ToggleNotificationImpl implements _ToggleNotification {
     TResult Function(_ChangeLanguage value)? changeLanguage,
     TResult Function(_SetFirstLaunch value)? setFirstLaunch,
     TResult Function(_ToggleNotification value)? toggleNotification,
+    TResult Function(_changeStatusBarIcon value)? changeStatusBarIcon,
     required TResult orElse(),
   }) {
     if (toggleNotification != null) {
@@ -631,11 +661,172 @@ abstract class _ToggleNotification implements SettingEvent {
 }
 
 /// @nodoc
+abstract class _$$changeStatusBarIconImplCopyWith<$Res> {
+  factory _$$changeStatusBarIconImplCopyWith(_$changeStatusBarIconImpl value,
+          $Res Function(_$changeStatusBarIconImpl) then) =
+      __$$changeStatusBarIconImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String status});
+}
+
+/// @nodoc
+class __$$changeStatusBarIconImplCopyWithImpl<$Res>
+    extends _$SettingEventCopyWithImpl<$Res, _$changeStatusBarIconImpl>
+    implements _$$changeStatusBarIconImplCopyWith<$Res> {
+  __$$changeStatusBarIconImplCopyWithImpl(_$changeStatusBarIconImpl _value,
+      $Res Function(_$changeStatusBarIconImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_$changeStatusBarIconImpl(
+      null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$changeStatusBarIconImpl implements _changeStatusBarIcon {
+  const _$changeStatusBarIconImpl(this.status);
+
+  @override
+  final String status;
+
+  @override
+  String toString() {
+    return 'SettingEvent.changeStatusBarIcon(status: $status)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$changeStatusBarIconImpl &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status);
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$changeStatusBarIconImplCopyWith<_$changeStatusBarIconImpl> get copyWith =>
+      __$$changeStatusBarIconImplCopyWithImpl<_$changeStatusBarIconImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toggleDarkMode,
+    required TResult Function(String language) changeLanguage,
+    required TResult Function(bool isFirst) setFirstLaunch,
+    required TResult Function() toggleNotification,
+    required TResult Function(String status) changeStatusBarIcon,
+  }) {
+    return changeStatusBarIcon(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toggleDarkMode,
+    TResult? Function(String language)? changeLanguage,
+    TResult? Function(bool isFirst)? setFirstLaunch,
+    TResult? Function()? toggleNotification,
+    TResult? Function(String status)? changeStatusBarIcon,
+  }) {
+    return changeStatusBarIcon?.call(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toggleDarkMode,
+    TResult Function(String language)? changeLanguage,
+    TResult Function(bool isFirst)? setFirstLaunch,
+    TResult Function()? toggleNotification,
+    TResult Function(String status)? changeStatusBarIcon,
+    required TResult orElse(),
+  }) {
+    if (changeStatusBarIcon != null) {
+      return changeStatusBarIcon(status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToggleDarkMode value) toggleDarkMode,
+    required TResult Function(_ChangeLanguage value) changeLanguage,
+    required TResult Function(_SetFirstLaunch value) setFirstLaunch,
+    required TResult Function(_ToggleNotification value) toggleNotification,
+    required TResult Function(_changeStatusBarIcon value) changeStatusBarIcon,
+  }) {
+    return changeStatusBarIcon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToggleDarkMode value)? toggleDarkMode,
+    TResult? Function(_ChangeLanguage value)? changeLanguage,
+    TResult? Function(_SetFirstLaunch value)? setFirstLaunch,
+    TResult? Function(_ToggleNotification value)? toggleNotification,
+    TResult? Function(_changeStatusBarIcon value)? changeStatusBarIcon,
+  }) {
+    return changeStatusBarIcon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToggleDarkMode value)? toggleDarkMode,
+    TResult Function(_ChangeLanguage value)? changeLanguage,
+    TResult Function(_SetFirstLaunch value)? setFirstLaunch,
+    TResult Function(_ToggleNotification value)? toggleNotification,
+    TResult Function(_changeStatusBarIcon value)? changeStatusBarIcon,
+    required TResult orElse(),
+  }) {
+    if (changeStatusBarIcon != null) {
+      return changeStatusBarIcon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _changeStatusBarIcon implements SettingEvent {
+  const factory _changeStatusBarIcon(final String status) =
+      _$changeStatusBarIconImpl;
+
+  String get status;
+
+  /// Create a copy of SettingEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$changeStatusBarIconImplCopyWith<_$changeStatusBarIconImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SettingState {
   bool get isDarkMode => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   bool get isFirstLaunch => throw _privateConstructorUsedError;
   bool get isNotificationEnabled => throw _privateConstructorUsedError;
+  String get statusBarIconBrightness => throw _privateConstructorUsedError;
 
   /// Create a copy of SettingState
   /// with the given fields replaced by the non-null parameter values.
@@ -654,7 +845,8 @@ abstract class $SettingStateCopyWith<$Res> {
       {bool isDarkMode,
       String language,
       bool isFirstLaunch,
-      bool isNotificationEnabled});
+      bool isNotificationEnabled,
+      String statusBarIconBrightness});
 }
 
 /// @nodoc
@@ -676,6 +868,7 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
     Object? language = null,
     Object? isFirstLaunch = null,
     Object? isNotificationEnabled = null,
+    Object? statusBarIconBrightness = null,
   }) {
     return _then(_value.copyWith(
       isDarkMode: null == isDarkMode
@@ -694,6 +887,10 @@ class _$SettingStateCopyWithImpl<$Res, $Val extends SettingState>
           ? _value.isNotificationEnabled
           : isNotificationEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      statusBarIconBrightness: null == statusBarIconBrightness
+          ? _value.statusBarIconBrightness
+          : statusBarIconBrightness // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -710,7 +907,8 @@ abstract class _$$SettingStateImplCopyWith<$Res>
       {bool isDarkMode,
       String language,
       bool isFirstLaunch,
-      bool isNotificationEnabled});
+      bool isNotificationEnabled,
+      String statusBarIconBrightness});
 }
 
 /// @nodoc
@@ -730,6 +928,7 @@ class __$$SettingStateImplCopyWithImpl<$Res>
     Object? language = null,
     Object? isFirstLaunch = null,
     Object? isNotificationEnabled = null,
+    Object? statusBarIconBrightness = null,
   }) {
     return _then(_$SettingStateImpl(
       isDarkMode: null == isDarkMode
@@ -748,6 +947,10 @@ class __$$SettingStateImplCopyWithImpl<$Res>
           ? _value.isNotificationEnabled
           : isNotificationEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      statusBarIconBrightness: null == statusBarIconBrightness
+          ? _value.statusBarIconBrightness
+          : statusBarIconBrightness // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -759,7 +962,8 @@ class _$SettingStateImpl implements _SettingState {
       {this.isDarkMode = false,
       this.language = 'en',
       this.isFirstLaunch = false,
-      this.isNotificationEnabled = true});
+      this.isNotificationEnabled = true,
+      this.statusBarIconBrightness = 'dark'});
 
   @override
   @JsonKey()
@@ -773,10 +977,13 @@ class _$SettingStateImpl implements _SettingState {
   @override
   @JsonKey()
   final bool isNotificationEnabled;
+  @override
+  @JsonKey()
+  final String statusBarIconBrightness;
 
   @override
   String toString() {
-    return 'SettingState(isDarkMode: $isDarkMode, language: $language, isFirstLaunch: $isFirstLaunch, isNotificationEnabled: $isNotificationEnabled)';
+    return 'SettingState(isDarkMode: $isDarkMode, language: $language, isFirstLaunch: $isFirstLaunch, isNotificationEnabled: $isNotificationEnabled, statusBarIconBrightness: $statusBarIconBrightness)';
   }
 
   @override
@@ -791,12 +998,15 @@ class _$SettingStateImpl implements _SettingState {
             (identical(other.isFirstLaunch, isFirstLaunch) ||
                 other.isFirstLaunch == isFirstLaunch) &&
             (identical(other.isNotificationEnabled, isNotificationEnabled) ||
-                other.isNotificationEnabled == isNotificationEnabled));
+                other.isNotificationEnabled == isNotificationEnabled) &&
+            (identical(
+                    other.statusBarIconBrightness, statusBarIconBrightness) ||
+                other.statusBarIconBrightness == statusBarIconBrightness));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isDarkMode, language, isFirstLaunch, isNotificationEnabled);
+  int get hashCode => Object.hash(runtimeType, isDarkMode, language,
+      isFirstLaunch, isNotificationEnabled, statusBarIconBrightness);
 
   /// Create a copy of SettingState
   /// with the given fields replaced by the non-null parameter values.
@@ -812,7 +1022,8 @@ abstract class _SettingState implements SettingState {
       {final bool isDarkMode,
       final String language,
       final bool isFirstLaunch,
-      final bool isNotificationEnabled}) = _$SettingStateImpl;
+      final bool isNotificationEnabled,
+      final String statusBarIconBrightness}) = _$SettingStateImpl;
 
   @override
   bool get isDarkMode;
@@ -822,6 +1033,8 @@ abstract class _SettingState implements SettingState {
   bool get isFirstLaunch;
   @override
   bool get isNotificationEnabled;
+  @override
+  String get statusBarIconBrightness;
 
   /// Create a copy of SettingState
   /// with the given fields replaced by the non-null parameter values.

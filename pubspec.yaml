@@ -87,6 +87,12 @@ flutter:
     - assets/images/main/header_human.png
     - assets/images/main/icon_camera.png
     - assets/images/main/icon_refresh.svg
+    - assets/images/main/suggest_today/1.png
+    - assets/images/main/suggest_today/2.png
+    - assets/images/main/suggest_today/3.jpg
+    - assets/images/main/taste/1.png
+    - assets/images/main/taste/2.png
+    - assets/images/main/taste/3.png
     - assets/images/footer/icon1.svg
     - assets/images/footer/icon2.svg
     - assets/images/footer/icon3.svg

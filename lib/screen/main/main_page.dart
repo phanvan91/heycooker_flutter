@@ -5,6 +5,9 @@ import '../components/layout/layout.dart';
 import 'my_ingredients/my_ingredient.dart';
 import 'suggest_today/suggest_today.dart';
 import 'taste/taste.dart';
+import 'topics/topic.dart';
+import 'suggest_videos/suggest_video.dart';
+
 @RoutePage()
 class MainPage extends StatelessWidget {
   const MainPage({super.key, required this.title});
@@ -30,6 +33,10 @@ Widget buildBody(BuildContext context) {
         SizedBox(height: 10),
         SuggestToday(),
         Taste(),
+        SizedBox(height: 10),
+        Topic(),
+        SizedBox(height: 10),
+        SuggestVideo()
       ],
     ),
   );

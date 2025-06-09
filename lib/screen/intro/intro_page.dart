@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:heycooker_flutter/app/routes/app_route.gr.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:heycooker_flutter/utils/log/log.dart';
 
 @RoutePage()
 @RoutePage()
@@ -18,7 +19,7 @@ class _IntroPageState extends State<IntroPage> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Current State: $isLastPage');
+    log.info('Current State: $isLastPage');
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -45,8 +46,6 @@ class _IntroPageState extends State<IntroPage> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              // Navigator.of(context).pop();
-                              debugPrint('chuyen page');
                               context.router.replace(MainRoute(title: 'Main'));
                             },
                             style: ElevatedButton.styleFrom(
@@ -71,8 +70,7 @@ class _IntroPageState extends State<IntroPage> {
                   activeColor: Color(0xFFFF6741),
                 ),
                 onDone: () {
-                  // TODO: navigate
-                  print("onDone");
+                  log.info('onDone');
                 },
                 onChange: (index) {
                   setState(() {
@@ -87,7 +85,7 @@ class _IntroPageState extends State<IntroPage> {
                   child: TextButton(
                     onPressed: () {
                       // Thêm lệnh log của bạn ở đây, ví dụ dùng print
-                      print("Nút Skip đã được nhấn");
+                      log.info('Nút Skip đã được nhấn');
                       // Gọi hàm skipToEnd() sau khi log
                       introKey.currentState?.skipToEnd();
                     },
@@ -117,8 +115,8 @@ PageViewModel _buildPage(String imagePath) {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: 40), // Padding trái phải 20px
+          padding:
+              EdgeInsets.symmetric(horizontal: 40), // Padding trái phải 20px
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

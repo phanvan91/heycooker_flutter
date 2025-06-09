@@ -41,7 +41,6 @@ dependencies:
   auto_route: ^10.0.0
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
-  rxdart: ^0.27.7
   logger: ^2.0.2+1
   shared_preferences: ^2.2.2
   introduction_screen: ^3.1.17
@@ -93,6 +92,10 @@ flutter:
     - assets/images/main/taste/1.png
     - assets/images/main/taste/2.png
     - assets/images/main/taste/3.png
+    - assets/images/main/topics/1.png
+    - assets/images/main/topics/2.png
+    - assets/images/main/topics/3.png
+    - assets/images/main/suggest_videos/play.png
     - assets/images/footer/icon1.svg
     - assets/images/footer/icon2.svg
     - assets/images/footer/icon3.svg

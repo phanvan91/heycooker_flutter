@@ -6,7 +6,6 @@ class AppLogger {
   final Logger _logger = Logger(
     printer: PrettyPrinter(
       methodCount: 0,
-      printTime: false,
       printEmojis: false,
       colors: true,
     ),

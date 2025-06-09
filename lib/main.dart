@@ -7,6 +7,6 @@ void main() async {
   // debugPaintSizeEnabled = true; // Bật debug layout
   WidgetsFlutterBinding.ensureInitialized();
   await getItInitial();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 

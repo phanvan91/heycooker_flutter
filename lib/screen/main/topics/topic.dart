@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:heycooker_flutter/utils/log/log.dart';
 
-class Taste extends StatelessWidget {
-  const Taste({super.key});
+class Topic extends StatelessWidget {
+  const Topic({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +25,12 @@ class Taste extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Thỏa mãn vị giác",
+                        "Hey! Cooker sẽ giúp bạn lựa chọn",
                         style:
                             TextStyle(fontSize: 12, color: Color(0xFF777777)),
                       ),
                       Text(
-                        "👌 Hương vị dành riêng cho bạn",
+                        "🥰︎  Chủ đề mà bạn quan tâm là gì?",
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class Taste extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              FlavorCardList(),
+              TopicCardList(),
               SizedBox(height: 20),
             ],
           ),
@@ -51,59 +51,49 @@ class Taste extends StatelessWidget {
   }
 }
 
-class FlavorCardList extends StatelessWidget {
-  const FlavorCardList({super.key});
+class TopicCardList extends StatelessWidget {
+  const TopicCardList({super.key});
 
-  final List<Map<String, String>> flavors = const [
+  final List<Map<String, String>> topics = const [
     {
-      'title': "Cay nồng\nhấp dẫn",
-      'image': 'assets/images/main/taste/1.png',
-      'hashtags': "#xao #nuong\n#ngaymua",
+      'title': "Món ăn đơn giản",
+      'description': "Công thức đơn giản cho buổi sáng và buổi trưa",
+      'background': 'assets/images/main/topics/1.png',
     },
     {
-      'title': "Tươi mới,\nthanh đạm",
-      'image': 'assets/images/main/taste/2.png',
-      'hashtags': "#xao #nuong\n#ngaymua",
+      'title': "Ăn kiêng",
+      'description': "Ngon tuyệt với chế độ ăn ít tinh bột",
+      'background': 'assets/images/main/topics/2.png',
     },
     {
-      'title': "Vị chua\nkích thích",
-      'image': 'assets/images/main/taste/3.png',
-      'hashtags': "#xao #nuong\n#ngaymua",
-    },
-    {
-      'title': "Vị chua\nkích thích",
-      'image': 'assets/images/main/taste/3.png',
-      'hashtags': "#xao #nuong\n#ngaymua",
-    },
-    {
-      'title': "Vị chua\nkích thích",
-      'image': 'assets/images/main/taste/3.png',
-      'hashtags': "#xao #nuong\n#ngaymua",
+      'title': "Món ăn cuối năm",
+      'description': "Món ăn cho bữa tiệc tại gia",
+      'background': 'assets/images/main/topics/3.png',
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 160,
+      height: 180,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: flavors.length,
+        itemCount: topics.length,
         itemBuilder: (context, index) {
-          final flavor = flavors[index];
+          final topic = topics[index];
 
           return Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: GestureDetector(
               onTap: () {
-                log.info('Tapped on: ${flavor['title']}');
+                log.info('Tapped on: ${topic['title']}');
                 // log.warning("Dữ liệu không hợp lệ");
                 // log.error("Đã xảy ra lỗi!");
               },
-              child: FlavorCard(
-                title: flavor['title'] ?? '',
-                imagePath: flavor['image'] ?? '',
-                hashtags: flavor['hashtags'] ?? '',
+              child: TopicCard(
+                title: topic['title'] ?? '',
+                description: topic['description'] ?? '',
+                background: topic['background'] ?? '',
               ),
             ),
           );
@@ -113,18 +103,18 @@ class FlavorCardList extends StatelessWidget {
   }
 }
 
-class FlavorCard extends StatelessWidget {
+class TopicCard extends StatelessWidget {
   final String title;
-  final String imagePath;
-  final String hashtags;
+  final String description;
+  final String background;
   final Color borderColor;
   final Color circleColor;
 
-  const FlavorCard({
+  const TopicCard({
     super.key,
     required this.title,
-    required this.imagePath,
-    required this.hashtags,
+    required this.description,
+    required this.background,
     this.borderColor = const Color(0xFFEEEEEE), // mặc định viền hồng nhạt
     this.circleColor = const Color(0xFFFF5252), // nền tròn đỏ
   });
@@ -132,17 +122,21 @@ class FlavorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 120,
-      height: 160,
+      width: 140,
+      height: 180,
       // margin: const EdgeInsets.only(right: 12),
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
       decoration: BoxDecoration(
         border: Border.all(color: borderColor),
-        borderRadius: BorderRadius.circular(16),
-        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        image: DecorationImage(
+          image: AssetImage(background),
+          fit: BoxFit.cover, // hoặc BoxFit.fill tùy bạn
+        ),
+        // color: Colors.white,
       ),
       child: Column(
-        // mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             title,
@@ -150,26 +144,19 @@ class FlavorCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: Colors.black,
+              color: Colors.white,
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 3),
-          Image.asset(
-            imagePath,
-            width: 67,
-            height: 67,
-            fit: BoxFit.contain,
-          ),
-          const SizedBox(height: 3),
+          const Spacer(),
           Text(
-            hashtags,
+            description,
             style: const TextStyle(
-              fontSize: 10,
-              color: Colors.grey,
+              fontSize: 13,
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
             ),
             textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),

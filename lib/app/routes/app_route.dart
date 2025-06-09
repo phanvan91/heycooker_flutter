@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'app_navigator_observer.dart';
 import 'app_route.gr.dart';
-// import 'package:injectable/injectable.dart';
-
+import 'package:heycooker_flutter/utils/log/log.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -26,7 +25,7 @@ class AppRouter extends RootStackRouter {
     Listenable? reevaluateListenable,
     Clip clipBehavior = Clip.hardEdge,
   }) {
-    debugPrint('AppRouter config');
+    log.info('AppRouter config');
     return super.config(
       deepLinkTransformer: deepLinkTransformer,
       rebuildStackOnDeepLink: true,

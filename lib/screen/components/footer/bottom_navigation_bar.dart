@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bottom_navigation_bar_bloc.dart';
+import 'package:heycooker_flutter/utils/log/log.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
-  const CustomBottomNavigationBar({
-    Key? key,
-  }) : super(key: key);
+  const CustomBottomNavigationBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,30 +25,29 @@ class CustomBottomNavigationBar extends StatelessWidget {
             unselectedItemColor: Colors.black54,
             currentIndex: state.selectedIndex,
             onTap: (index) {
-              debugPrint("BottomNavigationBar onTap");
+              log.info('BottomNavigationBar onTap');
               context
                   .read<BottomNavigationBloc>()
                   .add(BottomNavigationEvent.onItemSelected(index));
-              // if (index != 2) {
-              //   onItemSelected(index);
-              // }
             },
             items: [
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/images/footer/icon1.svg',
-                  color: state.selectedIndex == 0
-                      ? selectedColor
-                      : unselectedColor,
+                  colorFilter: ColorFilter.mode(
+                    state.selectedIndex == 0 ? selectedColor : unselectedColor,
+                    BlendMode.srcIn,
+                  ),
                 ),
                 label: 'Khám phá',
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/images/footer/icon2.svg',
-                  color: state.selectedIndex == 1
-                      ? selectedColor
-                      : unselectedColor,
+                  colorFilter: ColorFilter.mode(
+                    state.selectedIndex == 1 ? selectedColor : unselectedColor,
+                    BlendMode.srcIn,
+                  ),
                 ),
                 label: 'Bếp của tôi',
               ),
@@ -60,18 +58,20 @@ class CustomBottomNavigationBar extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/images/footer/icon4.svg',
-                  color: state.selectedIndex == 3
-                      ? selectedColor
-                      : unselectedColor,
+                  colorFilter: ColorFilter.mode(
+                    state.selectedIndex == 3 ? selectedColor : unselectedColor,
+                    BlendMode.srcIn,
+                  ),
                 ),
                 label: 'Yêu thích',
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/images/footer/icon5.svg',
-                  color: state.selectedIndex == 4
-                      ? selectedColor
-                      : unselectedColor,
+                  colorFilter: ColorFilter.mode(
+                    state.selectedIndex == 4 ? selectedColor : unselectedColor,
+                    BlendMode.srcIn,
+                  ),
                 ),
                 label: 'Menu',
               ),
@@ -98,7 +98,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       'assets/images/footer/icon3.svg',
-                      color: Colors.white,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.white,
+                        BlendMode.srcIn,
+                      ),
                     ),
                     const SizedBox(height: 2),
                     const Text(

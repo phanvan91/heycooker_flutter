@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:heycooker_flutter/utils/log/log.dart';
 
 class MyIngredient extends StatelessWidget {
   const MyIngredient({super.key});
@@ -71,7 +72,7 @@ class MyIngredient extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    IngredientChips(),
+                    const IngredientChips(),
                     const SizedBox(height: 20),
                     SizedBox(
                       width: double.infinity, // ép nút kéo hết chiều ngang
@@ -87,7 +88,7 @@ class MyIngredient extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          // TODO: xử lý
+                          log.info('onPressed xử lý');
                         },
                         child: const Text(
                           'Xem các công thức từ nguyên liệu đã chọn',
@@ -102,7 +103,7 @@ class MyIngredient extends StatelessWidget {
                     const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
-                        // TODO: xử lý khi nhấn
+                        log.info('onTap xử lý khi nhấn');
                       },
                       child: Container(
                         height: 40,
@@ -135,6 +136,7 @@ class MyIngredient extends StatelessWidget {
 }
 
 class IngredientChips extends StatefulWidget {
+  const IngredientChips({super.key});
   @override
   State<IngredientChips> createState() => _IngredientChipsState();
 }
@@ -153,7 +155,7 @@ class _IngredientChipsState extends State<IngredientChips> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('selectedItems: $selectedItems');
+    log.info('selectedItems: $selectedItems');
     return Wrap(
       spacing: 8,
       runSpacing: 8,

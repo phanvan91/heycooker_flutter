@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-
+import 'package:heycooker_flutter/utils/log/log.dart';
 part 'bottom_navigation_bar_event.dart';
 part 'bottom_navigation_bar_state.dart';
 part 'bottom_navigation_bar_bloc.freezed.dart';
@@ -20,11 +20,11 @@ class BottomNavigationBloc
   }
 
   void _onItemSelected(event, emit) {
-    debugPrint("_onItemSelected");
+    log.info('_onItemSelected');
     emit(state.copyWith(selectedIndex: event.selectedIndex));
   }
 
   void _onAiChefTapped(e, emit) {
-    debugPrint("_onItemSele_onAiChefTappedcted");
+    log.info('_onItemSele_onAiChefTappedcted');
   }
 }

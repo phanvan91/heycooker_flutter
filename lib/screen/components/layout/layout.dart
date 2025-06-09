@@ -11,12 +11,12 @@ class Layout extends StatefulWidget {
   final String statusBarIconBrightness;
 
   const Layout({
-    Key? key,
+    super.key,
     required this.body,
     this.isScrollable = false,
     this.backgroundLayout = const Color(0xFF0C0D0E),
     this.statusBarIconBrightness = 'dark',
-  }) : super(key: key);
+  });
 
   @override
   State<Layout> createState() => LayoutState();
@@ -26,8 +26,9 @@ class LayoutState extends State<Layout> {
   @override
   void initState() {
     super.initState();
-    debugPrint('LayoutState: ${widget.statusBarIconBrightness}'); // Thêm dấu $ và {}
-    context.read<SettingBloc>().add(SettingEvent.changeStatusBarIcon(widget.statusBarIconBrightness));
+    context
+        .read<SettingBloc>()
+        .add(SettingEvent.changeStatusBarIcon(widget.statusBarIconBrightness));
   }
 
   @override
@@ -43,7 +44,9 @@ class LayoutState extends State<Layout> {
       builder: (context, state) {
         return Scaffold(
           backgroundColor: widget.backgroundLayout,
-          body: widget.isScrollable ? SingleChildScrollView(child: content) : content,
+          body: widget.isScrollable
+              ? SingleChildScrollView(child: content)
+              : content,
           bottomNavigationBar: const CustomBottomNavigationBar(),
         );
       },

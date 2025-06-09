@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:heycooker_flutter/screen/intro/intro_page.dart';
+import 'package:heycooker_flutter/utils/log/log.dart';
 import './../../app/routes/app_route.gr.dart';
 
 @RoutePage()
@@ -19,13 +19,14 @@ class _SplashPageState extends State<SplashPage> {
 
     // Chờ 3s rồi replace
     Future.delayed(const Duration(seconds: 3), () {
-      context.router.replace(IntroRoute());
+      if (!mounted) return; 
+      context.router.replace(const IntroRoute());
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('SplashPage build');
+    log.info('SplashPage build');
     return Scaffold(
       body: Center(
         child: Image.asset(

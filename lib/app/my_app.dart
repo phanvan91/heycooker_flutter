@@ -7,7 +7,8 @@ import '../app/routes/app_route.dart';
 import '../screen/components/footer/bottom_navigation_bar_bloc.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final _routerConfig = GetIt.I<AppRouter>().config(); 
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 fontFamily: 'NotoSansKR',
               ),
-              routerConfig: GetIt.I<AppRouter>().config(),
+              routerConfig: _routerConfig,
             ),
           );
         },

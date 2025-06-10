@@ -348,6 +348,7 @@ abstract class _onAiChefTapped implements BottomNavigationEvent {
 /// @nodoc
 mixin _$BottomNavigationState {
   int get selectedIndex => throw _privateConstructorUsedError;
+  PageRouteInfo<Object?>? get navigateTo => throw _privateConstructorUsedError;
 
   /// Create a copy of BottomNavigationState
   /// with the given fields replaced by the non-null parameter values.
@@ -362,7 +363,7 @@ abstract class $BottomNavigationStateCopyWith<$Res> {
           $Res Function(BottomNavigationState) then) =
       _$BottomNavigationStateCopyWithImpl<$Res, BottomNavigationState>;
   @useResult
-  $Res call({int selectedIndex});
+  $Res call({int selectedIndex, PageRouteInfo<Object?>? navigateTo});
 }
 
 /// @nodoc
@@ -382,12 +383,17 @@ class _$BottomNavigationStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? selectedIndex = null,
+    Object? navigateTo = freezed,
   }) {
     return _then(_value.copyWith(
       selectedIndex: null == selectedIndex
           ? _value.selectedIndex
           : selectedIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      navigateTo: freezed == navigateTo
+          ? _value.navigateTo
+          : navigateTo // ignore: cast_nullable_to_non_nullable
+              as PageRouteInfo<Object?>?,
     ) as $Val);
   }
 }
@@ -401,7 +407,7 @@ abstract class _$$BottomNavigationStateImplCopyWith<$Res>
       __$$BottomNavigationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int selectedIndex});
+  $Res call({int selectedIndex, PageRouteInfo<Object?>? navigateTo});
 }
 
 /// @nodoc
@@ -419,12 +425,17 @@ class __$$BottomNavigationStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? selectedIndex = null,
+    Object? navigateTo = freezed,
   }) {
     return _then(_$BottomNavigationStateImpl(
       selectedIndex: null == selectedIndex
           ? _value.selectedIndex
           : selectedIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      navigateTo: freezed == navigateTo
+          ? _value.navigateTo
+          : navigateTo // ignore: cast_nullable_to_non_nullable
+              as PageRouteInfo<Object?>?,
     ));
   }
 }
@@ -434,15 +445,17 @@ class __$$BottomNavigationStateImplCopyWithImpl<$Res>
 class _$BottomNavigationStateImpl
     with DiagnosticableTreeMixin
     implements _BottomNavigationState {
-  const _$BottomNavigationStateImpl({this.selectedIndex = 0});
+  const _$BottomNavigationStateImpl({this.selectedIndex = 0, this.navigateTo});
 
   @override
   @JsonKey()
   final int selectedIndex;
+  @override
+  final PageRouteInfo<Object?>? navigateTo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'BottomNavigationState(selectedIndex: $selectedIndex)';
+    return 'BottomNavigationState(selectedIndex: $selectedIndex, navigateTo: $navigateTo)';
   }
 
   @override
@@ -450,7 +463,8 @@ class _$BottomNavigationStateImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'BottomNavigationState'))
-      ..add(DiagnosticsProperty('selectedIndex', selectedIndex));
+      ..add(DiagnosticsProperty('selectedIndex', selectedIndex))
+      ..add(DiagnosticsProperty('navigateTo', navigateTo));
   }
 
   @override
@@ -459,11 +473,13 @@ class _$BottomNavigationStateImpl
         (other.runtimeType == runtimeType &&
             other is _$BottomNavigationStateImpl &&
             (identical(other.selectedIndex, selectedIndex) ||
-                other.selectedIndex == selectedIndex));
+                other.selectedIndex == selectedIndex) &&
+            (identical(other.navigateTo, navigateTo) ||
+                other.navigateTo == navigateTo));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedIndex);
+  int get hashCode => Object.hash(runtimeType, selectedIndex, navigateTo);
 
   /// Create a copy of BottomNavigationState
   /// with the given fields replaced by the non-null parameter values.
@@ -476,11 +492,14 @@ class _$BottomNavigationStateImpl
 }
 
 abstract class _BottomNavigationState implements BottomNavigationState {
-  const factory _BottomNavigationState({final int selectedIndex}) =
-      _$BottomNavigationStateImpl;
+  const factory _BottomNavigationState(
+      {final int selectedIndex,
+      final PageRouteInfo<Object?>? navigateTo}) = _$BottomNavigationStateImpl;
 
   @override
   int get selectedIndex;
+  @override
+  PageRouteInfo<Object?>? get navigateTo;
 
   /// Create a copy of BottomNavigationState
   /// with the given fields replaced by the non-null parameter values.

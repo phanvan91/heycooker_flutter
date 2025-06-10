@@ -46,7 +46,7 @@ class _IntroPageState extends State<IntroPage> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              context.router.replace(MainRoute(title: 'Main'));
+                              context.router.replace(const MainRoute());
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFFFF6741),

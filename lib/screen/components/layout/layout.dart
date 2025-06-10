@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../footer/bottom_navigation_bar.dart';
 import '../header/header_main/header_main.dart';
+import '../header/header_main/header_app_bar.dart';
 import '../../../app/blocs/setting/setting_bloc.dart';
 
 class Layout extends StatefulWidget {
@@ -36,6 +37,7 @@ class LayoutState extends State<Layout> {
     final content = Column(
       children: [
         const HeaderMain(),
+        // const HeaderAppBar(title: 'title'),
         widget.body,
       ],
     );

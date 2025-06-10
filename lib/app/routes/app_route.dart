@@ -7,30 +7,32 @@ import 'package:heycooker_flutter/utils/log/log.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
-BuildContext get globalContext => navigatorKey.currentContext ?? (throw 'The BuildContext is nullable!');
+BuildContext get globalContext =>
+    navigatorKey.currentContext ?? (throw 'The BuildContext is nullable!');
 
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
   AppRouter() : super(navigatorKey: navigatorKey);
-@override
+
+  @override
   RouterConfig<UrlState> config({
     DeepLinkTransformer? deepLinkTransformer,
     DeepLinkBuilder? deepLinkBuilder,
     String? navRestorationScopeId,
     WidgetBuilder? placeholder,
-    NavigatorObserversBuilder navigatorObservers = AutoRouterDelegate.defaultNavigatorObserversBuilder,
+    NavigatorObserversBuilder navigatorObservers =
+        AutoRouterDelegate.defaultNavigatorObserversBuilder,
     bool includePrefixMatches = !kIsWeb,
     bool Function(String? location)? neglectWhen,
     bool rebuildStackOnDeepLink = false,
     Listenable? reevaluateListenable,
     Clip clipBehavior = Clip.hardEdge,
   }) {
-    log.info('AppRouter config');
+    log.info('APP ROUTER');
     return super.config(
       deepLinkTransformer: deepLinkTransformer,
       rebuildStackOnDeepLink: true,
-      deepLinkBuilder:
-          deepLinkBuilder ??
+      deepLinkBuilder: deepLinkBuilder ??
           (deepLink) {
             // if (deepLink.uri.scheme == 'app') {
             //   return DeepLink.single(MyWebViewRoute(extra: deepLink.uri));
@@ -48,10 +50,11 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [
-    MaterialRoute(page: SplashRoute.page, initial: true),
-    MaterialRoute(page: IntroRoute.page),
-    MaterialRoute(page: MainRoute.page),
-  ];
+        MaterialRoute(page: SplashRoute.page, initial: true),
+        MaterialRoute(page: IntroRoute.page),
+        MaterialRoute(page: MainRoute.page),
+        MaterialRoute(page: MyPantry.page),
+      ];
 
   @override
   late final List<AutoRouteGuard> guards = [

@@ -10,9 +10,8 @@ import 'suggest_videos/suggest_video.dart';
 
 @RoutePage()
 class MainPage extends StatelessWidget {
-  const MainPage({super.key, required this.title});
+  const MainPage({super.key});
 
-  final String title;
   @override
   Widget build(BuildContext context) {
     return Layout(

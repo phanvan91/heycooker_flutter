@@ -6,12 +6,13 @@ class AppLogger {
   final Logger _logger = Logger(
     printer: PrettyPrinter(
       methodCount: 0,
-      printEmojis: false,
+      printEmojis: true,
       colors: true,
     ),
   );
 
-  void info(String msg) => _logger.i(msg);
-  void warning(String msg) => _logger.w(msg);
-  void error(String msg) => _logger.e(msg);
+  void info(msg) => _logger.i(msg);
+  void debug(msg) => _logger.d(msg);
+  void warning(msg) => _logger.w(msg);
+  void error(msg) => _logger.e(msg);
 }

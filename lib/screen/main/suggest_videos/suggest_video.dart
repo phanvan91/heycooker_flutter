@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heycooker_flutter/utils/log/log.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class SuggestVideo extends StatelessWidget {
   const SuggestVideo({super.key});
@@ -84,9 +85,13 @@ class VideoCardList extends StatelessWidget {
             padding: const EdgeInsets.only(right: 16.0),
             child: GestureDetector(
               onTap: () {
-                log.info('Tapped on: ${topic['title']}');
-                // log.warning("Dữ liệu không hợp lệ");
-                // log.error("Đã xảy ra lỗi!");
+                log.info('Tapped on: ${topic['video_id']}');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => YouTubePlayerPage(videoId: topic['video_id'] ?? ''),
+                  ),
+                );
               },
               child: VideoCard(
                 title: topic['title'] ?? '',
@@ -134,14 +139,54 @@ class VideoCard extends StatelessWidget {
           const SizedBox(height: 5),
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 11.1,
-              color: Colors.black
-            ),
+            style: const TextStyle(fontSize: 11.1, color: Colors.black),
             maxLines: 2,
             // overflow: TextOverflow.ellipsis,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class YouTubePlayerPage extends StatelessWidget {
+  final String videoId;
+
+  const YouTubePlayerPage({super.key, required this.videoId});
+
+  @override
+  Widget build(BuildContext context) {
+    final String embedHtml = """
+    <html>
+      <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+        <style>
+          body { margin: 0; background-color: black; height: 100vh; }
+        </style>
+      </head>
+      <body>
+        <iframe 
+          width='100%' 
+          height='100%' 
+          src='https://www.youtube.com/embed/$videoId?autoplay=1&playsinline=1&modestbranding=1'
+          frameborder='0'
+          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          allowfullscreen>
+        </iframe>
+      </body>
+    </html>
+    """;
+
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+      ),
+      body: WebViewWidget(
+        controller: WebViewController()
+          ..setJavaScriptMode(JavaScriptMode.unrestricted)
+          ..loadHtmlString(embedHtml),
       ),
     );
   }

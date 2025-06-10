@@ -6,6 +6,15 @@ Project information:
 - **Java**: 17  
 - **Dart**: 3.8.1  
 - **Flutter SDK**: 3.32.1  
+---
+
+## 📦 Environment Configuration
+
+Before running the project, make sure to set up your environment file:
+
+```bash
+cp .env.example .env
+```
 
 ---
 
